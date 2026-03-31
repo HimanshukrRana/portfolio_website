@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #020617;
+  --muted-foreground: #475569;
+  --border: rgba(15, 23, 42, 0.12);
+  --card: rgba(255, 255, 255, 0.75);
+  --accent: #8f00ff;
+  --accent-soft: #b84dff;
+  --accent-deep: #5e00aa;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-deep: var(--accent-deep);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #000000;
+  --foreground: #f8fafc;
+  --muted-foreground: #94a3b8;
+  --border: rgba(148, 163, 184, 0.22);
+  --card: rgba(2, 6, 23, 0.62);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(143, 0, 255, 0.14), transparent 42%),
+    radial-gradient(circle at 90% 80%, rgba(184, 77, 255, 0.12), transparent 38%);
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  border-color: var(--border);
+}
+
+.section-divider {
+  height: 1px;
+  width: min(92%, 72rem);
+  margin: 0 auto;
+  background: linear-gradient(to right, transparent, rgba(143, 0, 255, 0.55), transparent);
+}
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+@keyframes blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  55%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
 }

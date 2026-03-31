@@ -1,4 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a modern portfolio built with Next.js App Router, Tailwind CSS, and Framer Motion.
+
+## Contact Form Email Setup
+
+The contact form sends messages through Resend using the API route at `app/api/contact/route.ts`.
+
+1. Copy `.env.example` to `.env.local`.
+2. Fill these variables:
+
+```bash
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxx
+CONTACT_TO_EMAIL=you@example.com
+CONTACT_FROM_EMAIL=Portfolio Contact <onboarding@resend.dev>
+```
+
+3. Start the app with `npm run dev`.
+4. Submit the form in the Contact section.
+
+Notes:
+- For production, use a verified domain in `CONTACT_FROM_EMAIL`.
+- `onboarding@resend.dev` works for quick testing with a Resend account.
 
 ## Getting Started
 
