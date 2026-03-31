@@ -55,6 +55,7 @@ export const navItems: NavItem[] = [
   { label: "Blogs", href: "#blogs" },
   { label: "Experience", href: "#experience" },
   { label: "Credentials", href: "#credentials" },
+  { label: "QR Code", href: "/qr" },
   { label: "Contact", href: "#contact" },
 ];
 
